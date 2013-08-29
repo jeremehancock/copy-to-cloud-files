@@ -40,7 +40,7 @@ try {
       $connection = new Rackspace(AUTHURL, $mysecret);
 
 // now, connect to the ObjectStore service
-      $ostore = $connection->ObjectStore('cloudFiles', "ORD");
+      $ostore = $connection->ObjectStore('cloudFiles', "$datacenter");
    }
 
    catch (HttpUnauthorizedError $e) {

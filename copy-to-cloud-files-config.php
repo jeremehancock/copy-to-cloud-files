@@ -7,5 +7,8 @@ $key = "";
 // URL
 $url = "";
 
+// Datacenter
+$datacenter = "";
+
 ?>
 

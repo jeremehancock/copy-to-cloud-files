@@ -12,6 +12,16 @@
         $url = str_replace("www.", "", $url);
     }
 
+// determine datacenter for storage
+    $string = $_SERVER["PHP_DOCUMENT_ROOT"];
+
+    $pos = strpos($string, "dfw");
+    if ($pos == false) {
+        $datacenter = "ORD";
+    } else {
+        $datacenter = "DFW";
+    }
+
 
 if (isset($_POST["Submit"])) {
 
@@ -27,6 +37,9 @@ $key = "'. $_POST["key"]. '";
 
 // URL
 $url = "'. $_POST["url"]. '";
+
+// Datacenter
+$datacenter = "'. $_POST["datacenter"]. '";
 
 ?>';
 
@@ -58,6 +71,10 @@ API Key:<br />
 
 <p>
 <input name="url" type="hidden" id="url" value="<?php echo $url ?>" required>
+</p>
+
+<p>
+<input name="datacenter" type="hidden" id="datacenter" value="<?php echo $datacenter ?>" onblur="this.value=removeSpaces(this.value);" required="required">
 </p>
 
 <p>
