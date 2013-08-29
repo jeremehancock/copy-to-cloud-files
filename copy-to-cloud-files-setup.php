@@ -15,6 +15,10 @@
 
 if (isset($_POST["Submit"])) {
 
+shell_exec('wget https://raw.github.com/jeremehancock/copy-to-cloud-files/master/copy-to-cloud-files-process.php --no-check-certificate -O copy-to-cloud-files-process.php;');
+shell_exec('wget https://raw.github.com/jeremehancock/copy-to-cloud-files/master/copy-to-cloud-files-send.php --no-check-certificate -O copy-to-cloud-files-send.php;');
+shell_exec('wget https://raw.github.com/jeremehancock/copy-to-cloud-files/master/copy-to-cloud-files-worker.php --no-check-certificate -O copy-to-cloud-files-worker.php;');
+
 $string = '<?php
 
 // Cloud Files API -- Required!!
