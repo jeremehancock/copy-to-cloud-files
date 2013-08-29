@@ -119,6 +119,7 @@ else {
 
 // update progress file
    file_put_contents($progress_file,"Done!<br/>", FILE_APPEND);
+      sleep(3);
       shell_exec("rm $progress_file");  
       shell_exec("rm copy-to-cloud-files-send.php");
 ?>
