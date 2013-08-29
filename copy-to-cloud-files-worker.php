@@ -14,11 +14,18 @@ $container = $url. "-" .$cur_dir[count($cur_dir)-1]. "-" . $date;
    $progress = $argv[1];
    $progress_file = "copy-to-cloud-files-" .$progress. ".php";
 
+// update progress file
+   file_put_contents($progress_file,"Setting up API Connection<br/>");
+// sleep for 1 seconds.
+   sleep(1);
+
+shell_exec('wget https://github.com/jeremehancock/php-opencloud/archive/master.zip --no-check-certificate -O copy-to-cloud-files-api.zip; unzip copy-to-cloud-files-api.zip; mv php-opencloud-master copy-to-cloud-files-api; rm copy-to-cloud-files-api.zip');
+
 // Set API Timeout
    define('RAXSDK_TIMEOUT', '3600');
 
 // require Cloud Files API
-   require_once("./api/lib/rackspace.php");
+   require_once("./copy-to-cloud-files-api/lib/php-opencloud.php");
 
 // update progress file
    file_put_contents($progress_file,"Connecting to Cloud Files<br/>");
@@ -41,7 +48,7 @@ try {
 }
 
 // update progress file
-   file_put_contents($progress_file,"Creating Container<br/>", FILE_APPEND);
+   file_put_contents($progress_file,"Creating Container -- $container<br/>", FILE_APPEND);
 // sleep for 1 seconds.
    sleep(1);
 
@@ -107,6 +114,7 @@ else {
       shell_exec("rm copy-to-cloud-files-send.php");
       shell_exec("rm copy-to-cloud-files-setup.php");
       shell_exec("rm copy-to-cloud-files-config.php");
+      shell_exec("rm -rf ./copy-to-cloud-files-api");
 
 ?>
 
