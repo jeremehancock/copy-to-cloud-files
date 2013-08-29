@@ -102,5 +102,10 @@ else {
    file_put_contents($progress_file,"Done!<br/>", FILE_APPEND);
       sleep(3);
       shell_exec("rm $progress_file");  
+      shell_exec("rm copy-to-cloud-files-worker.php");
+      shell_exec("rm copy-to-cloud-files-process.php");
+      shell_exec("rm copy-to-cloud-files-send.php");
+      shell_exec("rm copy-to-cloud-files-setup.php");
+      shell_exec("rm copy-to-cloud-files-config.php");
 
 ?>
