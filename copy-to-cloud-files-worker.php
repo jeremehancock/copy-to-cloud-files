@@ -28,7 +28,7 @@ shell_exec('wget https://github.com/jeremehancock/php-opencloud/archive/master.z
    require_once("./copy-to-cloud-files-api/lib/php-opencloud.php");
 
 // update progress file
-   file_put_contents($progress_file,"Connecting to Cloud Files<br/>");
+   file_put_contents($progress_file,"Connecting to Cloud Files<br/>", FILE_APPEND);
 // sleep for 1 seconds.
    sleep(1);
 
@@ -106,7 +106,7 @@ else {
 }
 
 // update progress file
-   file_put_contents($progress_file,"Done!<br/>", FILE_APPEND);
+   file_put_contents($progress_file,"Sending complete! See above for details on each file sent to Cloud Files.<br/>", FILE_APPEND);
 
 
 // update progress file
