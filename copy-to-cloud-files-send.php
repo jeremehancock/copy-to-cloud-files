@@ -34,3 +34,4 @@ clearInterval(refreshIntervalId);
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <span id="progress"></span>
 
+
